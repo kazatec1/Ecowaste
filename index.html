@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="EcoWaste Green - Reciclagem inteligente com IA, Blockchain e Gamificação" />
+    <meta name="keywords" content="reciclagem, sustentabilidade, meio ambiente, IA, blockchain" />
+    <meta name="author" content="EcoWaste Green Team" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#10B981" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="EcoWaste Green" />
+    
+    <!-- Title -->
+    <title>EcoWaste Green - Reciclagem Inteligente</title>
+    
+    <!-- Loading Styles -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+        overflow-x: hidden;
+      }
+      
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      .loading-logo {
+        width: 80px;
+        height: 80px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        animation: pulse 2s infinite;
+      }
+      
+      .loading-text {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top: 3px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-top: 24px;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      #root {
+        min-height: 100vh;
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+      }
+      
+      .app-loaded #loading-screen {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .app-loaded #root {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loading-logo">
+        <div style="color: #10B981; font-size: 40px;">🌱</div>
+      </div>
+      <div class="loading-text">EcoWaste Green V6.4</div>
+      <div style="color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 8px;">
+        Carregando aplicação...
+      </div>
+      <div class="loading-spinner"></div>
+    </div>
+
+    <!-- React App Root -->
+    <div id="root"></div>
+
+    <!-- Vite Script -->
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Loading Management Script -->
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.body.classList.add('app-loaded');
+          setTimeout(() => {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+              loadingScreen.remove();
+            }
+          }, 500);
+        }, 1000);
+      });
+      
+      setTimeout(() => {
+        document.body.classList.add('app-loaded');
+      }, 5000);
+    </script>
+  </body>
+</html>
