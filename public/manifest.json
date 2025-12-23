@@ -1,0 +1,16 @@
+{
+  "name": "EcoWaste Green",
+  "short_name": "EcoWaste",
+  "description": "Plataforma de reciclagem inteligente com IA, Blockchain e Gamificação",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#22c55e",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
